@@ -59,10 +59,12 @@ export const COMPONENT_CATEGORIES = {
     "RightToDelete",
     "HumanOverride",
   ],
-  epistemic: ["ClaimCard", "TruthTierBadge", "SourceCitation", "UncertaintyIndicator"],
+  epistemic: ["ClaimCard", "TruthTierBadge", "SourceCitation", "UncertaintyIndicator", "UncertaintyLabel", "ConfidenceMeter"],
   empirical: ["MoodSignalIndicator", "BehaviorTimeline", "SessionHealthCard"],
   buildlattice: ["ContractCard"],
-  layout: ["SafetyShell", "SanctuaryContainer", "FocusRegion", "SkipLink"],
+  observatory: ["CaseFileCard", "CaseFileList", "EvalResultChart"],
+  pipeline: ["SSEConsole", "AdapterBar"],
+  layout: ["SafetyShell", "SanctuaryContainer", "FocusRegion", "SkipLink", "SanctuaryLayout", "SafetyHeader"],
 } as const;
 
 // Distribution Formats

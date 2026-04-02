@@ -327,9 +327,17 @@
   
   /* Safety Colors */
   --color-verified: var(--verified);
+  --color-verified-foreground: var(--verified-foreground);
+  --color-verified-background: var(--verified-background);
   --color-caution: var(--caution);
+  --color-caution-foreground: var(--caution-foreground);
+  --color-caution-background: var(--caution-background);
   --color-danger: var(--danger);
+  --color-danger-foreground: var(--danger-foreground);
+  --color-danger-background: var(--danger-background);
   --color-grounding: var(--grounding);
+  --color-grounding-foreground: var(--grounding-foreground);
+  --color-grounding-background: var(--grounding-background);
   
   /* Sanctuary Palette */
   --color-soul-gold: var(--soul-gold);
