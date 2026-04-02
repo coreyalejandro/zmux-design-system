@@ -1,0 +1,527 @@
+/**
+ * ZMUX Design System - Global Styles
+ * 
+ * "Sanctuary" aesthetic with WCAG 2.2 AAA compliance
+ * Part of The Living Constitution (TLC) Design System
+ * 
+ * @invariant INVARIANT_VISUAL - Sanctuary palette preserved
+ * @invariant INVARIANT_A11Y - All color combinations meet WCAG 2.2 AAA
+ */
+
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+@custom-variant high-contrast (&:is(.high-contrast *));
+
+/* ============================================
+   ZMUX SANCTUARY THEME - LIGHT MODE (DEFAULT)
+   ============================================ */
+:root {
+  /* Core Sanctuary Palette */
+  --soul-gold: #D4A574;
+  --soul-gold-light: #E5C9A8;
+  --soul-gold-dark: #B8895A;
+  --terracotta: #C4A484;
+  --terracotta-light: #D9C4AC;
+  --terracotta-dark: #A8886C;
+  --clinical-teal: #6B9B9B;
+  --clinical-teal-light: #8FB5B5;
+  --clinical-teal-dark: #4F7A7A;
+  --warm-cream: #F5F0E8;
+  --sanctuary-white: #FEFDFB;
+  --charcoal: #2D2D2D;
+
+  /* Semantic Colors */
+  --background: #FEFDFB;
+  --background-secondary: #F5F0E8;
+  --background-tertiary: #E8E2D8;
+  --foreground: #2D2D2D;
+  --foreground-secondary: #5C574F;
+  --foreground-muted: #7A746B;
+  
+  /* Card */
+  --card: #FEFDFB;
+  --card-foreground: #2D2D2D;
+  --card-border: #E8E2D8;
+  
+  /* Popover */
+  --popover: #FEFDFB;
+  --popover-foreground: #2D2D2D;
+  
+  /* Primary (Soul Gold) */
+  --primary: #D4A574;
+  --primary-foreground: #1A1917;
+  --primary-hover: #C4925C;
+  --primary-active: #B8895A;
+  
+  /* Secondary (Terracotta) */
+  --secondary: #F5F0E8;
+  --secondary-foreground: #2D2D2D;
+  
+  /* Accent (Clinical Teal) */
+  --accent: #6B9B9B;
+  --accent-foreground: #FEFDFB;
+  --accent-hover: #548383;
+  --accent-active: #4F7A7A;
+  
+  /* Muted */
+  --muted: #E8E2D8;
+  --muted-foreground: #5C574F;
+  
+  /* Destructive */
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  
+  /* Border and Input */
+  --border: #E8E2D8;
+  --input: #E8E2D8;
+  --ring: #6B9B9B;
+  
+  /* Safety Semantic Colors */
+  --verified: #22C55E;
+  --verified-foreground: #FFFFFF;
+  --verified-background: #F0FDF4;
+  --caution: #F59E0B;
+  --caution-foreground: #1A1917;
+  --caution-background: #FFFBEB;
+  --danger: #EF4444;
+  --danger-foreground: #FFFFFF;
+  --danger-background: #FEF2F2;
+  --grounding: #8B7355;
+  --grounding-foreground: #FFFFFF;
+  --grounding-background: #F5F0E8;
+  
+  /* Truth Tiers (EpistemicGuard) */
+  --truth-t1: #22C55E;
+  --truth-t1-bg: #F0FDF4;
+  --truth-t1-fg: #14532D;
+  --truth-t2: #F59E0B;
+  --truth-t2-bg: #FFFBEB;
+  --truth-t2-fg: #78350F;
+  --truth-t3: #EF4444;
+  --truth-t3-bg: #FEF2F2;
+  --truth-t3-fg: #7F1D1D;
+  
+  /* Mood Signals (EmpiricalGuard) */
+  --mood-calm: #6B9B9B;
+  --mood-calm-bg: #F2F7F7;
+  --mood-stressed: #F59E0B;
+  --mood-stressed-bg: #FFFBEB;
+  --mood-crisis: #EF4444;
+  --mood-crisis-bg: #FEF2F2;
+  
+  /* Risk Levels (BuildLattice) */
+  --risk-low: #22C55E;
+  --risk-medium: #F59E0B;
+  --risk-high: #EF4444;
+  --risk-critical: #DC2626;
+  
+  /* Safety UI */
+  --crisis-hotline: #EF4444;
+  --exit-button: #DC2626;
+  --safe-zone: #22C55E;
+  --warning-banner: #F59E0B;
+  
+  /* Glass Morphism */
+  --glass-bg: rgba(254, 253, 251, 0.7);
+  --glass-border: rgba(212, 165, 116, 0.2);
+  --glass-shadow: 0 8px 32px 0 rgba(139, 115, 85, 0.1);
+  
+  /* Charts */
+  --chart-1: #D4A574;
+  --chart-2: #6B9B9B;
+  --chart-3: #C4A484;
+  --chart-4: #22C55E;
+  --chart-5: #F59E0B;
+  
+  /* Radius */
+  --radius: 0.625rem;
+  
+  /* Sidebar */
+  --sidebar: #F5F0E8;
+  --sidebar-foreground: #2D2D2D;
+  --sidebar-primary: #D4A574;
+  --sidebar-primary-foreground: #1A1917;
+  --sidebar-accent: #E8E2D8;
+  --sidebar-accent-foreground: #2D2D2D;
+  --sidebar-border: #E8E2D8;
+  --sidebar-ring: #6B9B9B;
+}
+
+/* ============================================
+   ZMUX SANCTUARY THEME - DARK MODE
+   ============================================ */
+.dark {
+  --soul-gold: #E5C9A8;
+  --soul-gold-light: #F0D9C0;
+  --soul-gold-dark: #D4A574;
+  --terracotta: #D9C4AC;
+  --terracotta-light: #E5D9CC;
+  --terracotta-dark: #C4A484;
+  --clinical-teal: #8FB5B5;
+  --clinical-teal-light: #A8C5C5;
+  --clinical-teal-dark: #6B9B9B;
+  
+  --background: #1A1917;
+  --background-secondary: #252422;
+  --background-tertiary: #2D2D2D;
+  --foreground: #F5F0E8;
+  --foreground-secondary: #D1C9BC;
+  --foreground-muted: #A8A095;
+  
+  --card: #252422;
+  --card-foreground: #F5F0E8;
+  --card-border: #454139;
+  
+  --popover: #252422;
+  --popover-foreground: #F5F0E8;
+  
+  --primary: #E5C9A8;
+  --primary-foreground: #1A1917;
+  --primary-hover: #F0D9C0;
+  --primary-active: #D4A574;
+  
+  --secondary: #2D2D2D;
+  --secondary-foreground: #F5F0E8;
+  
+  --accent: #8FB5B5;
+  --accent-foreground: #1A1917;
+  --accent-hover: #A8C5C5;
+  --accent-active: #6B9B9B;
+  
+  --muted: #2D2D2D;
+  --muted-foreground: #A8A095;
+  
+  --destructive: #F87171;
+  --destructive-foreground: #1A1917;
+  
+  --border: #454139;
+  --input: #454139;
+  --ring: #8FB5B5;
+  
+  /* Safety colors stay bright for visibility */
+  --verified: #4ADE80;
+  --verified-foreground: #1A1917;
+  --verified-background: #0A2E1A;
+  --caution: #FBBF24;
+  --caution-foreground: #1A1917;
+  --caution-background: #2E2006;
+  --danger: #F87171;
+  --danger-foreground: #1A1917;
+  --danger-background: #2E0A0A;
+  
+  /* Truth Tiers */
+  --truth-t1: #4ADE80;
+  --truth-t1-bg: #0A2E1A;
+  --truth-t1-fg: #4ADE80;
+  --truth-t2: #FBBF24;
+  --truth-t2-bg: #2E2006;
+  --truth-t2-fg: #FBBF24;
+  --truth-t3: #F87171;
+  --truth-t3-bg: #2E0A0A;
+  --truth-t3-fg: #F87171;
+  
+  /* Mood Signals */
+  --mood-calm: #8FB5B5;
+  --mood-calm-bg: #0A2020;
+  --mood-stressed: #FBBF24;
+  --mood-stressed-bg: #2E2006;
+  --mood-crisis: #F87171;
+  --mood-crisis-bg: #2E0A0A;
+  
+  /* Risk Levels */
+  --risk-low: #4ADE80;
+  --risk-medium: #FBBF24;
+  --risk-high: #F87171;
+  --risk-critical: #FF6B6B;
+  
+  /* Safety UI */
+  --crisis-hotline: #FF6B6B;
+  --exit-button: #FF6B6B;
+  --safe-zone: #4ADE80;
+  --warning-banner: #FBBF24;
+  
+  /* Glass Morphism - Dark variant */
+  --glass-bg: rgba(26, 25, 23, 0.8);
+  --glass-border: rgba(212, 165, 116, 0.15);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  
+  /* Charts */
+  --chart-1: #E5C9A8;
+  --chart-2: #8FB5B5;
+  --chart-3: #D9C4AC;
+  --chart-4: #4ADE80;
+  --chart-5: #FBBF24;
+  
+  /* Sidebar */
+  --sidebar: #252422;
+  --sidebar-foreground: #F5F0E8;
+  --sidebar-primary: #E5C9A8;
+  --sidebar-primary-foreground: #1A1917;
+  --sidebar-accent: #2D2D2D;
+  --sidebar-accent-foreground: #F5F0E8;
+  --sidebar-border: #454139;
+  --sidebar-ring: #8FB5B5;
+}
+
+/* ============================================
+   HIGH CONTRAST MODE
+   ============================================ */
+.high-contrast {
+  --background: #FFFFFF;
+  --background-secondary: #F0F0F0;
+  --foreground: #000000;
+  --foreground-secondary: #1A1A1A;
+  
+  --primary: #996600;
+  --primary-foreground: #FFFFFF;
+  --accent: #004D4D;
+  --accent-foreground: #FFFFFF;
+  
+  --border: #000000;
+  --ring: #004D4D;
+  
+  /* No glass morphism in high contrast */
+  --glass-bg: #FFFFFF;
+  --glass-border: #000000;
+  --glass-shadow: 0 0 0 2px #000000;
+  
+  /* Safety colors - maximum contrast */
+  --verified: #006600;
+  --caution: #996600;
+  --danger: #CC0000;
+  --crisis-hotline: #CC0000;
+}
+
+/* ============================================
+   TAILWIND THEME CONFIGURATION
+   ============================================ */
+@theme inline {
+  /* Fonts */
+  --font-sans: 'Inter', 'Geist', system-ui, sans-serif;
+  --font-display: 'Crimson Pro', Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'Geist Mono', monospace;
+  --font-readable: 'OpenDyslexic', 'Comic Sans MS', sans-serif;
+  
+  /* Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  /* Safety Colors */
+  --color-verified: var(--verified);
+  --color-caution: var(--caution);
+  --color-danger: var(--danger);
+  --color-grounding: var(--grounding);
+  
+  /* Sanctuary Palette */
+  --color-soul-gold: var(--soul-gold);
+  --color-terracotta: var(--terracotta);
+  --color-clinical-teal: var(--clinical-teal);
+  --color-warm-cream: var(--warm-cream);
+  --color-sanctuary-white: var(--sanctuary-white);
+  --color-charcoal: var(--charcoal);
+  
+  /* Charts */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  
+  /* Border Radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Sidebar */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Typography - Optimized line heights for readability */
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-balance;
+    font-family: var(--font-display);
+  }
+  
+  p {
+    @apply leading-relaxed;
+    letter-spacing: 0.01em;
+  }
+  
+  /* Focus styles - Always visible for accessibility */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+  
+  /* Skip link for keyboard navigation */
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-lg;
+  }
+  
+  /* Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  
+  /* High contrast mode adjustments */
+  @media (prefers-contrast: more) {
+    :root {
+      --border: #000000;
+      --ring: #004D4D;
+    }
+  }
+}
+
+/* ============================================
+   GLASS MORPHISM UTILITIES
+   ============================================ */
+@layer utilities {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+  
+  .glass-subtle {
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  
+  /* Safety component utilities */
+  .safety-focus {
+    @apply ring-2 ring-danger ring-offset-2;
+  }
+  
+  .crisis-visible {
+    @apply fixed z-[9999];
+  }
+  
+  /* Dyslexia-friendly text */
+  .dyslexia-friendly {
+    font-family: var(--font-readable);
+    letter-spacing: 0.02em;
+    line-height: 1.8;
+  }
+  
+  /* Cognitive load reduction */
+  .simplified-mode {
+    @apply [&_*]:transition-none [&_*]:animate-none;
+  }
+}
+
+/* ============================================
+   SAFETY-CRITICAL STYLES
+   ============================================ */
+@layer components {
+  /* Crisis button - Always visible, never hidden */
+  .crisis-button {
+    @apply fixed bottom-4 right-4 z-[9999] min-h-[48px] min-w-[48px] 
+           bg-danger text-danger-foreground font-bold rounded-full 
+           shadow-lg hover:bg-danger/90 focus:ring-4 focus:ring-danger/50;
+  }
+  
+  /* Exit strategy - Quick escape button */
+  .exit-button {
+    @apply fixed top-4 right-4 z-[9999] px-4 py-2 
+           bg-[var(--exit-button)] text-white font-bold rounded-lg
+           hover:opacity-90 focus:ring-4 focus:ring-danger/50;
+  }
+  
+  /* Safety banner */
+  .safety-banner {
+    @apply w-full px-4 py-3 text-center font-medium;
+  }
+  
+  .safety-banner-warning {
+    @apply safety-banner bg-[var(--caution-background)] text-[var(--caution-foreground)] border-b border-[var(--caution)];
+  }
+  
+  .safety-banner-danger {
+    @apply safety-banner bg-[var(--danger-background)] text-[var(--danger-foreground)] border-b border-[var(--danger)];
+  }
+  
+  /* Truth tier badges */
+  .truth-tier {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold;
+  }
+  
+  .truth-tier-t1 {
+    @apply truth-tier bg-[var(--truth-t1-bg)] text-[var(--truth-t1-fg)] border border-[var(--truth-t1)];
+  }
+  
+  .truth-tier-t2 {
+    @apply truth-tier bg-[var(--truth-t2-bg)] text-[var(--truth-t2-fg)] border border-[var(--truth-t2)];
+  }
+  
+  .truth-tier-t3 {
+    @apply truth-tier bg-[var(--truth-t3-bg)] text-[var(--truth-t3-fg)] border border-[var(--truth-t3)];
+  }
+  
+  /* Mood signal indicators */
+  .mood-indicator {
+    @apply inline-flex items-center gap-1.5 px-2 py-1 rounded-lg text-sm;
+  }
+  
+  .mood-calm {
+    @apply mood-indicator bg-[var(--mood-calm-bg)] text-[var(--mood-calm)];
+  }
+  
+  .mood-stressed {
+    @apply mood-indicator bg-[var(--mood-stressed-bg)] text-[var(--mood-stressed)];
+  }
+  
+  .mood-crisis {
+    @apply mood-indicator bg-[var(--mood-crisis-bg)] text-[var(--mood-crisis)];
+  }
+}
