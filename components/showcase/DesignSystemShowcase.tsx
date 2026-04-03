@@ -68,7 +68,9 @@ export function DesignSystemShowcase() {
   return (
     <div className="min-h-screen bg-background">
       {/* Safety Banner */}
-      <SafetyBanner variant="info" />
+      <SafetyBanner variant="info" dismissible>
+        Welcome to the ZMUX Design System. This is a TLC-compliant, accessibility-first component library.
+      </SafetyBanner>
 
       {/* Header */}
       <header className="border-b border-border bg-background/80 backdrop-blur-sm sticky top-0 z-40">
