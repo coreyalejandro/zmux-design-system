@@ -492,11 +492,11 @@
   }
   
   .safety-banner-warning {
-    @apply safety-banner bg-[var(--caution-background)] text-[var(--caution-foreground)] border-b border-[var(--caution)];
+    @apply w-full px-4 py-3 text-center font-medium bg-[var(--caution-background)] text-[var(--caution-foreground)] border-b border-[var(--caution)];
   }
   
   .safety-banner-danger {
-    @apply safety-banner bg-[var(--danger-background)] text-[var(--danger-foreground)] border-b border-[var(--danger)];
+    @apply w-full px-4 py-3 text-center font-medium bg-[var(--danger-background)] text-[var(--danger-foreground)] border-b border-[var(--danger)];
   }
   
   /* Truth tier badges */
@@ -505,15 +505,15 @@
   }
   
   .truth-tier-t1 {
-    @apply truth-tier bg-[var(--truth-t1-bg)] text-[var(--truth-t1-fg)] border border-[var(--truth-t1)];
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-[var(--truth-t1-bg)] text-[var(--truth-t1-fg)] border border-[var(--truth-t1)];
   }
   
   .truth-tier-t2 {
-    @apply truth-tier bg-[var(--truth-t2-bg)] text-[var(--truth-t2-fg)] border border-[var(--truth-t2)];
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-[var(--truth-t2-bg)] text-[var(--truth-t2-fg)] border border-[var(--truth-t2)];
   }
   
   .truth-tier-t3 {
-    @apply truth-tier bg-[var(--truth-t3-bg)] text-[var(--truth-t3-fg)] border border-[var(--truth-t3)];
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-[var(--truth-t3-bg)] text-[var(--truth-t3-fg)] border border-[var(--truth-t3)];
   }
   
   /* Mood signal indicators */
@@ -522,14 +522,14 @@
   }
   
   .mood-calm {
-    @apply mood-indicator bg-[var(--mood-calm-bg)] text-[var(--mood-calm)];
+    @apply inline-flex items-center gap-1.5 px-2 py-1 rounded-lg text-sm bg-[var(--mood-calm-bg)] text-[var(--mood-calm)];
   }
   
   .mood-stressed {
-    @apply mood-indicator bg-[var(--mood-stressed-bg)] text-[var(--mood-stressed)];
+    @apply inline-flex items-center gap-1.5 px-2 py-1 rounded-lg text-sm bg-[var(--mood-stressed-bg)] text-[var(--mood-stressed)];
   }
   
   .mood-crisis {
-    @apply mood-indicator bg-[var(--mood-crisis-bg)] text-[var(--mood-crisis)];
+    @apply inline-flex items-center gap-1.5 px-2 py-1 rounded-lg text-sm bg-[var(--mood-crisis-bg)] text-[var(--mood-crisis)];
   }
 }
