@@ -130,7 +130,7 @@ export function GroundingReset({
           <div className="relative mx-auto w-32 h-32 flex items-center justify-center">
             <div
               className={cn(
-                'absolute inset-0 rounded-full bg-grounding/20',
+                'absolute inset-0 rounded-full bg-amber-700/20',
                 'transition-transform duration-1000 ease-in-out',
                 isActive && breathPhase === 'inhale' && 'scale-110',
                 isActive && breathPhase === 'exhale' && 'scale-90',
@@ -139,7 +139,7 @@ export function GroundingReset({
               )}
             />
             <div className="relative z-10">
-              <p className="text-2xl font-semibold text-grounding capitalize">
+              <p className="text-2xl font-semibold text-amber-700 capitalize">
                 {isActive ? breathPhase : 'Ready'}
               </p>
               {isActive && (
@@ -154,7 +154,7 @@ export function GroundingReset({
           
           <div className="flex justify-center gap-3">
             {!isActive ? (
-              <Button onClick={handleStart} className="bg-grounding hover:bg-grounding/90">
+              <Button onClick={handleStart} className="bg-amber-700 hover:bg-amber-700/90 text-white">
                 Begin
               </Button>
             ) : (
@@ -186,7 +186,7 @@ export function GroundingReset({
             <p className="text-muted-foreground">
               This exercise helps ground you in the present moment using your five senses.
             </p>
-            <Button onClick={handleStart} className="bg-grounding hover:bg-grounding/90">
+            <Button onClick={handleStart} className="bg-amber-700 hover:bg-amber-700/90 text-white">
               <Leaf className="h-4 w-4 mr-2" />
               Start Grounding
             </Button>
@@ -200,8 +200,8 @@ export function GroundingReset({
                   key={index}
                   className={cn(
                     'w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition-colors',
-                    index < currentStep && 'bg-grounding text-grounding-foreground',
-                    index === currentStep && 'bg-grounding text-grounding-foreground ring-2 ring-grounding/50',
+                    index < currentStep && 'bg-amber-700 text-white',
+                    index === currentStep && 'bg-amber-700 text-white ring-2 ring-amber-700/50',
                     index > currentStep && 'bg-muted text-muted-foreground'
                   )}
                   aria-label={`Step ${index + 1}: ${step.sense}`}
@@ -213,12 +213,12 @@ export function GroundingReset({
             </div>
 
             {/* Current step */}
-            <div className="text-center space-y-4 p-6 rounded-xl bg-grounding/5 border border-grounding/20">
-              <div className="mx-auto w-16 h-16 rounded-full bg-grounding/10 flex items-center justify-center">
-                {Icon && <Icon className="h-8 w-8 text-grounding" />}
+            <div className="text-center space-y-4 p-6 rounded-xl bg-amber-700/5 border border-amber-700/20">
+              <div className="mx-auto w-16 h-16 rounded-full bg-amber-700/10 flex items-center justify-center">
+                {Icon && <Icon className="h-8 w-8 text-amber-700" />}
               </div>
               <div>
-                <p className="text-3xl font-bold text-grounding">
+                <p className="text-3xl font-bold text-amber-700">
                   {currentGroundingStep.count} {currentGroundingStep.sense}
                 </p>
                 <p className="text-muted-foreground mt-2">
@@ -232,7 +232,7 @@ export function GroundingReset({
               <Button variant="outline" onClick={handleReset}>
                 Reset
               </Button>
-              <Button onClick={handleNext} className="bg-grounding hover:bg-grounding/90">
+              <Button onClick={handleNext} className="bg-amber-700 hover:bg-amber-700/90 text-white">
                 {currentStep < groundingSteps.length - 1 ? 'Next' : 'Complete'}
               </Button>
             </div>

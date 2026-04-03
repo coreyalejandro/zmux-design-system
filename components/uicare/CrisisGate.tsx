@@ -75,18 +75,18 @@ export function CrisisGate({
       <div
         className={cn(
           'flex items-center gap-4 px-4 py-3',
-          'bg-danger/10 border border-danger/30 rounded-lg',
+          'bg-destructive/10 border border-destructive/30 rounded-lg',
           className
         )}
         role="region"
         aria-label="Crisis resources"
       >
-        <Heart className="h-5 w-5 text-danger flex-shrink-0" aria-hidden="true" />
+        <Heart className="h-5 w-5 text-destructive flex-shrink-0" aria-hidden="true" />
         <p className="text-sm font-medium">
           Need immediate help?{' '}
           <a
             href="tel:988"
-            className="underline font-bold text-danger hover:text-danger/80"
+            className="underline font-bold text-destructive hover:text-destructive/80"
             onClick={() => handleAccess(defaultResources[0], 'phone')}
           >
             Call 988
@@ -94,7 +94,7 @@ export function CrisisGate({
           or{' '}
           <a
             href="sms:741741?body=HOME"
-            className="underline font-bold text-danger hover:text-danger/80"
+            className="underline font-bold text-destructive hover:text-destructive/80"
             onClick={() => handleAccess(defaultResources[1], 'sms')}
           >
             Text HOME to 741741
@@ -115,11 +115,11 @@ export function CrisisGate({
         role="region"
         aria-label="Crisis resources"
       >
-        <GlassCard className="border-danger/30 bg-danger/5">
+        <GlassCard className="border-destructive/30 bg-destructive/5">
           <GlassCardHeader className="pb-2">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Heart className="h-5 w-5 text-danger" aria-hidden="true" />
+                <Heart className="h-5 w-5 text-destructive" aria-hidden="true" />
                 <GlassCardTitle className="text-base">Need Support?</GlassCardTitle>
               </div>
               {allowDismiss && (
@@ -140,8 +140,8 @@ export function CrisisGate({
               href="tel:988"
               className={cn(
                 'flex items-center gap-3 px-3 py-2 rounded-lg',
-                'bg-danger text-danger-foreground',
-                'hover:bg-danger/90 transition-colors',
+                'bg-destructive text-destructive-foreground',
+                'hover:bg-destructive/90 transition-colors',
                 'font-semibold'
               )}
               onClick={() => handleAccess(defaultResources[0], 'phone')}
@@ -175,8 +175,8 @@ export function CrisisGate({
       aria-label="Crisis resources"
     >
       <div className="flex items-center gap-3">
-        <div className="p-2 rounded-full bg-danger/10">
-          <Heart className="h-6 w-6 text-danger" aria-hidden="true" />
+        <div className="p-2 rounded-full bg-destructive/10">
+          <Heart className="h-6 w-6 text-destructive" aria-hidden="true" />
         </div>
         <div>
           <h2 className="text-xl font-semibold font-display">You Are Not Alone</h2>
@@ -195,7 +195,7 @@ export function CrisisGate({
                 <p className="text-sm text-muted-foreground">{resource.description}</p>
               )}
               {resource.available && (
-                <span className="inline-flex items-center text-xs text-verified font-medium">
+                <span className="inline-flex items-center text-xs text-green-600 font-medium">
                   Available {resource.available}
                 </span>
               )}
@@ -204,9 +204,8 @@ export function CrisisGate({
               {resource.phone && (
                 <Button
                   asChild
-                  variant="default"
+                  variant="destructive"
                   size="sm"
-                  className="bg-danger hover:bg-danger/90 text-danger-foreground"
                   onClick={() => handleAccess(resource, 'phone')}
                 >
                   <a href={`tel:${resource.phone}`}>

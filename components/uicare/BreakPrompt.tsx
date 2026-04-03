@@ -83,8 +83,8 @@ export function BreakPrompt({
     <GlassModal open={open} onOpenChange={onOpenChange}>
       <GlassModalContent size="md" className="sm:max-w-md">
         <GlassModalHeader className="text-center">
-          <div className="mx-auto w-12 h-12 rounded-full bg-caution/10 flex items-center justify-center mb-4">
-            <Coffee className="h-6 w-6 text-caution" aria-hidden="true" />
+          <div className="mx-auto w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center mb-4">
+            <Coffee className="h-6 w-6 text-amber-500" aria-hidden="true" />
           </div>
           <GlassModalTitle>Time for a Break</GlassModalTitle>
           <GlassModalDescription>
@@ -111,7 +111,7 @@ export function BreakPrompt({
                 )}
               >
                 <div className="p-2 rounded-lg bg-background">
-                  <Icon className="h-5 w-5 text-grounding" aria-hidden="true" />
+                  <Icon className="h-5 w-5 text-amber-700" aria-hidden="true" />
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center justify-between">

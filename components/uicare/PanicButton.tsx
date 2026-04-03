@@ -28,19 +28,19 @@ const panicButtonVariants = cva(
     variants: {
       variant: {
         default: [
-          'bg-danger text-danger-foreground',
-          'hover:bg-danger/90',
-          'focus:ring-danger/50',
+          'bg-destructive text-destructive-foreground',
+          'hover:bg-destructive/90',
+          'focus:ring-destructive/50',
         ].join(' '),
         outline: [
-          'border-2 border-danger text-danger',
-          'hover:bg-danger hover:text-danger-foreground',
-          'focus:ring-danger/50',
+          'border-2 border-destructive text-destructive',
+          'hover:bg-destructive hover:text-destructive-foreground',
+          'focus:ring-destructive/50',
         ].join(' '),
         subtle: [
-          'bg-danger/10 text-danger',
-          'hover:bg-danger/20',
-          'focus:ring-danger/30',
+          'bg-destructive/10 text-destructive',
+          'hover:bg-destructive/20',
+          'focus:ring-destructive/30',
         ].join(' '),
       },
       size: {

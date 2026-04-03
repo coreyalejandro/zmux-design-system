@@ -448,7 +448,7 @@
   
   /* Safety component utilities */
   .safety-focus {
-    @apply ring-2 ring-danger ring-offset-2;
+    @apply ring-2 ring-destructive ring-offset-2;
   }
   
   .crisis-visible {
@@ -475,15 +475,34 @@
   /* Crisis button - Always visible, never hidden */
   .crisis-button {
     @apply fixed bottom-4 right-4 z-[9999] min-h-[48px] min-w-[48px] 
-           bg-danger text-danger-foreground font-bold rounded-full 
-           shadow-lg hover:bg-danger/90 focus:ring-4 focus:ring-danger/50;
+           font-bold rounded-full shadow-lg;
+    background-color: var(--danger);
+    color: var(--danger-foreground);
+  }
+  
+  .crisis-button:hover {
+    opacity: 0.9;
+  }
+  
+  .crisis-button:focus {
+    @apply ring-4;
+    --tw-ring-color: color-mix(in srgb, var(--danger) 50%, transparent);
   }
   
   /* Exit strategy - Quick escape button */
   .exit-button {
-    @apply fixed top-4 right-4 z-[9999] px-4 py-2 
-           bg-[var(--exit-button)] text-white font-bold rounded-lg
-           hover:opacity-90 focus:ring-4 focus:ring-danger/50;
+    @apply fixed top-4 right-4 z-[9999] px-4 py-2 font-bold rounded-lg;
+    background-color: var(--exit-button);
+    color: white;
+  }
+  
+  .exit-button:hover {
+    opacity: 0.9;
+  }
+  
+  .exit-button:focus {
+    @apply ring-4;
+    --tw-ring-color: color-mix(in srgb, var(--danger) 50%, transparent);
   }
   
   /* Safety banner */

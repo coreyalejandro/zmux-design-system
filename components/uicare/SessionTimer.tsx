@@ -22,8 +22,8 @@ const sessionTimerVariants = cva(
     variants: {
       status: {
         normal: 'bg-muted text-muted-foreground',
-        warning: 'bg-caution/10 text-caution',
-        urgent: 'bg-danger/10 text-danger',
+        warning: 'bg-amber-500/10 text-amber-600',
+        urgent: 'bg-destructive/10 text-destructive',
       },
     },
     defaultVariants: {
@@ -108,8 +108,8 @@ export function SessionTimer({
           size="sm"
           onClick={onTakeBreak}
           className={cn(
-            status === 'urgent' && 'border-danger text-danger hover:bg-danger/10',
-            status === 'warning' && 'border-caution text-caution hover:bg-caution/10'
+            status === 'urgent' && 'border-destructive text-destructive hover:bg-destructive/10',
+            status === 'warning' && 'border-amber-500 text-amber-600 hover:bg-amber-500/10'
           )}
         >
           <Coffee className="h-4 w-4 mr-1.5" />

@@ -34,10 +34,10 @@ const meterVariants = cva(
 )
 
 const levelColors: Record<CognitiveLoadLevel, string> = {
-  low: 'bg-verified',
-  moderate: 'bg-caution',
-  high: 'bg-danger/70',
-  overloaded: 'bg-danger',
+  low: 'bg-green-500',
+  moderate: 'bg-amber-500',
+  high: 'bg-red-400',
+  overloaded: 'bg-destructive',
 }
 
 const levelLabels: Record<CognitiveLoadLevel, string> = {
@@ -81,10 +81,10 @@ export function CognitiveLoadMeter({
         <Brain 
           className={cn(
             'h-4 w-4',
-            level === 'overloaded' && 'text-danger',
-            level === 'high' && 'text-danger/70',
-            level === 'moderate' && 'text-caution',
-            level === 'low' && 'text-verified'
+            level === 'overloaded' && 'text-destructive',
+            level === 'high' && 'text-red-400',
+            level === 'moderate' && 'text-amber-500',
+            level === 'low' && 'text-green-500'
           )} 
           aria-hidden="true" 
         />
@@ -113,10 +113,10 @@ export function CognitiveLoadMeter({
       {showLabel && (
         <span className={cn(
           'font-medium',
-          level === 'overloaded' && 'text-danger',
-          level === 'high' && 'text-danger/70',
-          level === 'moderate' && 'text-caution',
-          level === 'low' && 'text-verified'
+          level === 'overloaded' && 'text-destructive',
+          level === 'high' && 'text-red-400',
+          level === 'moderate' && 'text-amber-500',
+          level === 'low' && 'text-green-500'
         )}>
           {levelLabels[level]}
         </span>
@@ -133,7 +133,7 @@ export function CognitiveLoadMeter({
           variant="outline"
           size="sm"
           onClick={onSimplify}
-          className="border-danger text-danger hover:bg-danger/10"
+          className="border-destructive text-destructive hover:bg-destructive/10"
         >
           <AlertTriangle className="h-3 w-3 mr-1" />
           Simplify

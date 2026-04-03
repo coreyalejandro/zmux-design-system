@@ -84,8 +84,8 @@ export function DesignSystemShowcase() {
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <ReadabilityToggle />
-              <SessionTimer initialMinutes={45} />
+              <ReadabilityToggle variant="compact" />
+              <SessionTimer warningThreshold={45 * 60 * 1000} />
             </div>
           </div>
         </SanctuaryContainer>
@@ -380,7 +380,7 @@ function UICareSection() {
 
         <GlassCard>
           <h3 className="font-semibold text-foreground mb-4">Session Timer</h3>
-          <SessionTimer initialMinutes={45} onTimeUp={() => {}} />
+          <SessionTimer warningThreshold={45 * 60 * 1000} onBreakSuggested={() => {}} />
         </GlassCard>
       </div>
     </FocusRegion>

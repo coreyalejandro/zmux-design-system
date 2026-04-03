@@ -131,9 +131,8 @@ export function SanctuaryLayout({
       <div className="fixed bottom-4 right-4 z-50 flex items-center gap-3">
         {showSessionTimer && (
           <SessionTimer
-            duration={sessionDuration}
-            onComplete={onSessionEnd}
-            showVisual
+            warningThreshold={sessionDuration * 60 * 1000}
+            onBreakSuggested={onSessionEnd}
           />
         )}
         {showPanicButton && <PanicButton onActivate={onPanic} />}
