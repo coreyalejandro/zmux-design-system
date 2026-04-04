@@ -26,6 +26,15 @@ import { MoodSignalIndicator, SessionHealthCard } from "@/components/empirical/M
 // BuildLattice Components
 import { ContractCard } from "@/components/buildlattice/ContractCard";
 
+// Control Plane Components
+import { 
+  StatusIndicator, 
+  StatusBanner, 
+  InvariantDisplay, 
+  TopologyViewer, 
+  EvidenceLedger 
+} from "@/components/control-plane";
+
 // Layout Components
 import { SanctuaryContainer, FocusRegion } from "@/components/layout/SafetyShell";
 
@@ -42,14 +51,15 @@ import {
   ChevronRight,
   ExternalLink,
   Check,
-  Layers
+  Layers,
+  Monitor
 } from "lucide-react";
 
 // =============================================================================
 // DESIGN SYSTEM SHOWCASE
 // =============================================================================
 
-type ShowcaseSection = "overview" | "tokens" | "glass" | "uicare" | "humanguard" | "epistemic" | "empirical" | "buildlattice";
+type ShowcaseSection = "overview" | "tokens" | "glass" | "uicare" | "humanguard" | "epistemic" | "empirical" | "buildlattice" | "controlplane";
 
 export function DesignSystemShowcase() {
   const [activeSection, setActiveSection] = React.useState<ShowcaseSection>("overview");
@@ -63,6 +73,7 @@ export function DesignSystemShowcase() {
     { id: "epistemic", label: "Epistemic", icon: <BookOpen className="w-4 h-4" /> },
     { id: "empirical", label: "Empirical", icon: <Brain className="w-4 h-4" /> },
     { id: "buildlattice", label: "BuildLattice", icon: <Code className="w-4 h-4" /> },
+    { id: "controlplane", label: "Control Plane", icon: <Monitor className="w-4 h-4" /> },
   ];
 
   return (
@@ -131,6 +142,7 @@ export function DesignSystemShowcase() {
             {activeSection === "epistemic" && <EpistemicSection />}
             {activeSection === "empirical" && <EmpiricalSection />}
             {activeSection === "buildlattice" && <BuildLatticeSection />}
+            {activeSection === "controlplane" && <ControlPlaneSection />}
           </SanctuaryContainer>
         </main>
       </div>
@@ -227,12 +239,64 @@ function OverviewSection() {
 }
 
 function TokensSection() {
-  const colors = [
-    { name: "Soul Gold", var: "--sanctuary-gold", class: "bg-sanctuary-gold" },
-    { name: "Clinical Teal", var: "--sanctuary-teal", class: "bg-sanctuary-teal" },
-    { name: "Terracotta", var: "--sanctuary-terracotta", class: "bg-sanctuary-terracotta" },
-    { name: "Warm Cream", var: "--warm-cream", class: "bg-[hsl(var(--warm-cream))]" },
-    { name: "Sage", var: "--sage", class: "bg-[hsl(var(--sage))]" },
+  // Core Sanctuary Palette
+  const sanctuaryPalette = [
+    { name: "Soul Gold", hex: "#D4A574", var: "--soul-gold", description: "Primary brand, warmth, trust" },
+    { name: "Terracotta", hex: "#C4A484", var: "--terracotta", description: "Secondary warmth, earthiness" },
+    { name: "Clinical Teal", hex: "#6B9B9B", var: "--clinical-teal", description: "Calm, clinical professionalism" },
+    { name: "Warm Cream", hex: "#F5F0E8", var: "--warm-cream", description: "Background, soft neutrals" },
+    { name: "Sanctuary White", hex: "#FEFDFB", var: "--sanctuary-white", description: "Pure background" },
+    { name: "Charcoal", hex: "#2D2D2D", var: "--charcoal", description: "Primary text, dark UI" },
+  ];
+
+  // Soul Gold Scale
+  const soulGoldScale = [
+    { shade: "50", hex: "#FDF8F3" },
+    { shade: "100", hex: "#F9EDE0" },
+    { shade: "200", hex: "#F0D9C0" },
+    { shade: "300", hex: "#E5C9A8" },
+    { shade: "400", hex: "#D4A574" },
+    { shade: "500", hex: "#C4925C" },
+    { shade: "600", hex: "#B8895A" },
+    { shade: "700", hex: "#9A7048" },
+    { shade: "800", hex: "#7D5A3A" },
+    { shade: "900", hex: "#60452D" },
+  ];
+
+  // Clinical Teal Scale
+  const clinicalTealScale = [
+    { shade: "50", hex: "#F2F7F7" },
+    { shade: "100", hex: "#E0EBEB" },
+    { shade: "200", hex: "#C1D7D7" },
+    { shade: "300", hex: "#8FB5B5" },
+    { shade: "400", hex: "#6B9B9B" },
+    { shade: "500", hex: "#548383" },
+    { shade: "600", hex: "#4F7A7A" },
+    { shade: "700", hex: "#426666" },
+    { shade: "800", hex: "#355252" },
+    { shade: "900", hex: "#2A4040" },
+  ];
+
+  // Safety Semantic Colors
+  const safetyColors = [
+    { name: "Verified", hex: "#22C55E", bg: "#F0FDF4", usage: "Success, safe, approved" },
+    { name: "Caution", hex: "#F59E0B", bg: "#FFFBEB", usage: "Warning, attention needed" },
+    { name: "Danger", hex: "#EF4444", bg: "#FEF2F2", usage: "Error, crisis, critical" },
+    { name: "Grounding", hex: "#8B7355", bg: "#F5F0E8", usage: "Calm, reset, earthing" },
+  ];
+
+  // Truth Tier Colors
+  const truthTiers = [
+    { tier: "T1", name: "Verified", hex: "#22C55E", bg: "#F0FDF4", description: "Peer-reviewed, institutional" },
+    { tier: "T2", name: "Partial", hex: "#F59E0B", bg: "#FFFBEB", description: "Some evidence, needs review" },
+    { tier: "T3", name: "Unverified", hex: "#EF4444", bg: "#FEF2F2", description: "User-generated, unvalidated" },
+  ];
+
+  // Mood Signal Colors
+  const moodSignals = [
+    { signal: "Calm", hex: "#6B9B9B", bg: "#F2F7F7" },
+    { signal: "Stressed", hex: "#F59E0B", bg: "#FFFBEB" },
+    { signal: "Crisis", hex: "#EF4444", bg: "#FEF2F2" },
   ];
 
   return (
@@ -241,19 +305,133 @@ function TokensSection() {
         <div>
           <h2 className="text-2xl font-bold text-foreground mb-2">Design Tokens</h2>
           <p className="text-muted-foreground">
-            Foundational design values that ensure consistency across all TLC products.
+            The ZMUX Sanctuary palette - foundational design values ensuring consistency across all TLC products.
           </p>
         </div>
 
-        {/* Colors */}
+        {/* Core Sanctuary Palette */}
         <GlassCard>
-          <h3 className="text-lg font-semibold text-foreground mb-4">Color Palette</h3>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {colors.map((color) => (
+          <h3 className="text-lg font-semibold text-foreground mb-4">Core Sanctuary Palette</h3>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {sanctuaryPalette.map((color) => (
+              <div key={color.name} className="flex items-start gap-3 p-3 rounded-lg bg-muted/30">
+                <div 
+                  className="w-16 h-16 rounded-lg flex-shrink-0 border border-border"
+                  style={{ backgroundColor: color.hex }}
+                />
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-foreground">{color.name}</p>
+                  <p className="text-xs font-mono text-muted-foreground">{color.hex}</p>
+                  <p className="text-xs font-mono text-muted-foreground mt-0.5">{color.var}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{color.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </GlassCard>
+
+        {/* Soul Gold Scale */}
+        <GlassCard>
+          <h3 className="text-lg font-semibold text-foreground mb-4">Soul Gold Scale</h3>
+          <div className="flex flex-wrap gap-2">
+            {soulGoldScale.map((color) => (
+              <div key={color.shade} className="text-center">
+                <div 
+                  className="w-12 h-12 rounded-lg border border-border"
+                  style={{ backgroundColor: color.hex }}
+                />
+                <p className="text-xs text-muted-foreground mt-1">{color.shade}</p>
+                <p className="text-xs font-mono text-muted-foreground">{color.hex}</p>
+              </div>
+            ))}
+          </div>
+        </GlassCard>
+
+        {/* Clinical Teal Scale */}
+        <GlassCard>
+          <h3 className="text-lg font-semibold text-foreground mb-4">Clinical Teal Scale</h3>
+          <div className="flex flex-wrap gap-2">
+            {clinicalTealScale.map((color) => (
+              <div key={color.shade} className="text-center">
+                <div 
+                  className="w-12 h-12 rounded-lg border border-border"
+                  style={{ backgroundColor: color.hex }}
+                />
+                <p className="text-xs text-muted-foreground mt-1">{color.shade}</p>
+                <p className="text-xs font-mono text-muted-foreground">{color.hex}</p>
+              </div>
+            ))}
+          </div>
+        </GlassCard>
+
+        {/* Safety Semantic Colors */}
+        <GlassCard>
+          <h3 className="text-lg font-semibold text-foreground mb-4">Safety Semantic Colors</h3>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {safetyColors.map((color) => (
               <div key={color.name} className="text-center">
-                <div className={cn("w-full h-20 rounded-lg mb-2", color.class)} />
-                <p className="text-sm font-medium text-foreground">{color.name}</p>
-                <p className="text-xs text-muted-foreground font-mono">{color.var}</p>
+                <div className="flex gap-1 justify-center mb-2">
+                  <div 
+                    className="w-10 h-10 rounded-lg border border-border"
+                    style={{ backgroundColor: color.hex }}
+                  />
+                  <div 
+                    className="w-10 h-10 rounded-lg border border-border"
+                    style={{ backgroundColor: color.bg }}
+                  />
+                </div>
+                <p className="text-sm font-semibold text-foreground">{color.name}</p>
+                <p className="text-xs font-mono text-muted-foreground">{color.hex}</p>
+                <p className="text-xs text-muted-foreground mt-1">{color.usage}</p>
+              </div>
+            ))}
+          </div>
+        </GlassCard>
+
+        {/* Truth Tier Colors */}
+        <GlassCard>
+          <h3 className="text-lg font-semibold text-foreground mb-4">Truth Tier Colors (EpistemicGuard)</h3>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {truthTiers.map((tier) => (
+              <div 
+                key={tier.tier} 
+                className="p-4 rounded-lg border"
+                style={{ backgroundColor: tier.bg, borderColor: tier.hex }}
+              >
+                <div className="flex items-center gap-2 mb-2">
+                  <span 
+                    className="inline-flex items-center justify-center w-8 h-8 rounded-full text-sm font-bold text-white"
+                    style={{ backgroundColor: tier.hex }}
+                  >
+                    {tier.tier}
+                  </span>
+                  <span className="font-semibold">{tier.name}</span>
+                </div>
+                <p className="text-xs text-muted-foreground">{tier.description}</p>
+                <p className="text-xs font-mono text-muted-foreground mt-1">{tier.hex}</p>
+              </div>
+            ))}
+          </div>
+        </GlassCard>
+
+        {/* Mood Signal Colors */}
+        <GlassCard>
+          <h3 className="text-lg font-semibold text-foreground mb-4">Mood Signal Colors (EmpiricalGuard)</h3>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {moodSignals.map((mood) => (
+              <div 
+                key={mood.signal} 
+                className="p-4 rounded-lg border"
+                style={{ backgroundColor: mood.bg, borderColor: mood.hex }}
+              >
+                <div className="flex items-center gap-2">
+                  <div 
+                    className="w-3 h-3 rounded-full"
+                    style={{ backgroundColor: mood.hex }}
+                  />
+                  <span className="font-semibold">{mood.signal}</span>
+                </div>
+                <p className="text-xs font-mono text-muted-foreground mt-2">{mood.hex}</p>
               </div>
             ))}
           </div>
@@ -293,8 +471,13 @@ function TokensSection() {
             {[1, 2, 3, 4, 6, 8, 12, 16].map((n) => (
               <div key={n} className="text-center">
                 <div
-                  className="bg-sanctuary-gold/20 border border-sanctuary-gold/40 rounded"
-                  style={{ width: `${n * 4}px`, height: `${n * 4}px` }}
+                  className="border rounded"
+                  style={{ 
+                    width: `${n * 4}px`, 
+                    height: `${n * 4}px`,
+                    backgroundColor: "rgba(212, 165, 116, 0.2)",
+                    borderColor: "rgba(212, 165, 116, 0.4)"
+                  }}
                 />
                 <p className="text-xs text-muted-foreground mt-1">{n}</p>
               </div>
@@ -576,6 +759,64 @@ function BuildLatticeSection() {
             onReject={() => console.log("Rejected")}
           />
         </div>
+      </div>
+    </FocusRegion>
+  );
+}
+
+function ControlPlaneSection() {
+  return (
+    <FocusRegion label="TLC Control Plane Components">
+      <div className="space-y-8">
+        <div>
+          <h2 className="text-2xl font-bold text-foreground mb-2">TLC Control Plane</h2>
+          <p className="text-muted-foreground">
+            Governance visualization and system control components for the TLC Control Plane UI.
+            Implements PASS 8 compliance, invariant mapping, and dual-topology management.
+          </p>
+        </div>
+
+        {/* System Status */}
+        <GlassCard>
+          <h3 className="font-semibold text-foreground mb-4">System Status (INVARIANT_10)</h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            Displays system status based on STATUS.json. System halts if QUARANTINE or OFF.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <StatusIndicator status="ACTIVE" />
+            <StatusIndicator status="QUARANTINE" />
+            <StatusIndicator status="OFF" />
+            <StatusIndicator status="LOADING" />
+            <StatusIndicator status="ERROR" />
+          </div>
+        </GlassCard>
+
+        {/* Invariant Display */}
+        <GlassCard>
+          <h3 className="font-semibold text-foreground mb-4">37 Core Invariants</h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            Visual display of all TLC governance invariants with enforcement status.
+          </p>
+          <InvariantDisplay showStats showSearch />
+        </GlassCard>
+
+        {/* Topology Viewer */}
+        <GlassCard>
+          <h3 className="font-semibold text-foreground mb-4">Dual Topology (INVARIANT_16)</h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            Visualizes integrated and standalone paths with parity verification.
+          </p>
+          <TopologyViewer />
+        </GlassCard>
+
+        {/* Evidence Ledger */}
+        <GlassCard>
+          <h3 className="font-semibold text-foreground mb-4">Evidence Ledger (INVARIANT_18)</h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            Immutable audit trail of all system actions with cryptographic signatures.
+          </p>
+          <EvidenceLedger showFilters showExport />
+        </GlassCard>
       </div>
     </FocusRegion>
   );
