@@ -63,6 +63,11 @@ type ShowcaseSection = "overview" | "tokens" | "glass" | "uicare" | "humanguard"
 
 export function DesignSystemShowcase() {
   const [activeSection, setActiveSection] = React.useState<ShowcaseSection>("overview");
+  
+  const handleSectionChange = (sectionId: ShowcaseSection) => {
+    console.log("[v0] Section clicked:", sectionId);
+    setActiveSection(sectionId);
+  };
 
   const sections: { id: ShowcaseSection; label: string; icon: React.ReactNode }[] = [
     { id: "overview", label: "Overview", icon: <Layers className="w-4 h-4" /> },
@@ -107,18 +112,19 @@ export function DesignSystemShowcase() {
       {/* Main Content */}
       <div className="flex">
         {/* Sidebar Navigation */}
-        <aside className="w-64 border-r border-border min-h-[calc(100vh-73px)] sticky top-[73px] bg-background/50 hidden lg:block">
+        <aside className="w-64 border-r border-border min-h-[calc(100vh-73px)] sticky top-[73px] bg-background">
           <nav className="p-4" aria-label="Design system sections">
             <ul className="space-y-1">
               {sections.map((section) => (
                 <li key={section.id}>
                   <button
-                    onClick={() => setActiveSection(section.id)}
+                    type="button"
+                    onClick={() => handleSectionChange(section.id)}
                     className={cn(
-                      "w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors",
+                      "w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors cursor-pointer",
                       "focus:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                       activeSection === section.id
-                        ? "bg-sanctuary-gold/10 text-sanctuary-gold font-medium"
+                        ? "bg-primary/10 text-primary font-medium"
                         : "text-muted-foreground hover:bg-muted hover:text-foreground"
                     )}
                   >
