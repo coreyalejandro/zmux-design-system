@@ -84,24 +84,54 @@ export default function ZMUXShowcase() {
         
         <ul className="menu-list list-none">
           <li>
-            <span>Core Tokens</span>
-            <span className="font-mono text-xs opacity-50">5</span>
+            <button 
+              type="button" 
+              onClick={() => setActiveSection("tokens")}
+              className={`flex w-full justify-between items-center cursor-pointer hover:text-soul-gold transition-colors ${activeSection === "tokens" ? "text-soul-gold" : ""}`}
+            >
+              <span>Core Tokens</span>
+              <span className="font-mono text-xs opacity-50">5</span>
+            </button>
           </li>
           <li>
-            <span>Glass Components</span>
-            <span className="font-mono text-xs opacity-50">4</span>
+            <button 
+              type="button" 
+              onClick={() => setActiveSection("components")}
+              className={`flex w-full justify-between items-center cursor-pointer hover:text-soul-gold transition-colors ${activeSection === "components" ? "text-soul-gold" : ""}`}
+            >
+              <span>Glass Components</span>
+              <span className="font-mono text-xs opacity-50">4</span>
+            </button>
           </li>
           <li>
-            <span>UICare Safety</span>
-            <span className="font-mono text-xs opacity-50">12</span>
+            <button 
+              type="button" 
+              onClick={() => setActiveSection("safety")}
+              className={`flex w-full justify-between items-center cursor-pointer hover:text-soul-gold transition-colors ${activeSection === "safety" ? "text-soul-gold" : ""}`}
+            >
+              <span>UICare Safety</span>
+              <span className="font-mono text-xs opacity-50">12</span>
+            </button>
           </li>
           <li>
-            <span>HumanGuard</span>
-            <span className="font-mono text-xs opacity-50">8</span>
+            <button 
+              type="button" 
+              onClick={() => setActiveSection("safety")}
+              className={`flex w-full justify-between items-center cursor-pointer hover:text-soul-gold transition-colors ${activeSection === "safety" ? "text-soul-gold" : ""}`}
+            >
+              <span>HumanGuard</span>
+              <span className="font-mono text-xs opacity-50">8</span>
+            </button>
           </li>
           <li>
-            <span>Control Plane <span className="soul-tag">NEW</span></span>
-            <span className="font-mono text-xs opacity-50">4</span>
+            <button 
+              type="button" 
+              onClick={() => setActiveSection("sanctuary")}
+              className={`flex w-full justify-between items-center cursor-pointer hover:text-soul-gold transition-colors ${activeSection === "sanctuary" ? "text-soul-gold" : ""}`}
+            >
+              <span>Control Plane <span className="soul-tag">NEW</span></span>
+              <span className="font-mono text-xs opacity-50">4</span>
+            </button>
           </li>
         </ul>
         
