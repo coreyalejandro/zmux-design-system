@@ -77,8 +77,7 @@ export default function ZMUXShowcase() {
           <span className="status-pill mb-4 block w-fit">● DESIGN SYSTEM</span>
           <h2 className="text-3xl font-light mb-4">ZMUX Components</h2>
           <p className="text-sm opacity-60 leading-relaxed">
-            The Living Constitution design system. Accessibility-first, safety-first 
-            components for clinical wellness applications.
+            The Living Constitution design system. Accessibility-first, safety-first components.
           </p>
         </div>
         
