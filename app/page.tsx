@@ -65,7 +65,7 @@ export default function ZMUXShowcase() {
       
       {/* Main Content */}
       <main className="flex flex-col gap-8">
-        {activeSection === "sanctuary" && <SanctuarySection />}
+        {activeSection === "sanctuary" && <SanctuarySection onNavigate={setActiveSection} />}
         {activeSection === "tokens" && <TokensSection />}
         {activeSection === "components" && <ComponentsSection />}
         {activeSection === "safety" && <SafetySection />}
@@ -150,7 +150,7 @@ export default function ZMUXShowcase() {
   );
 }
 
-function SanctuarySection() {
+function SanctuarySection({ onNavigate }: { onNavigate: (section: Section) => void }) {
   return (
     <>
       {/* Hero */}
@@ -206,7 +206,11 @@ function SanctuarySection() {
           <span className="viz-label block mb-2">The Component Library</span>
           <h3 className="text-2xl uppercase">68+ Safety-First Components</h3>
         </div>
-        <button type="button" className="btn-monolithic">
+        <button 
+          type="button" 
+          className="btn-monolithic"
+          onClick={() => onNavigate("components")}
+        >
           Explore Components
         </button>
       </div>
