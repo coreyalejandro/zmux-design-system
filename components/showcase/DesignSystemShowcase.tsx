@@ -88,7 +88,7 @@ export function DesignSystemShowcase() {
         <SanctuaryContainer maxWidth="2xl" padding="sm">
           <div className="flex items-center justify-between py-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-sanctuary-gold to-sanctuary-terracotta flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #D4A574, #C4A484)' }}>
                 <span className="text-white font-bold text-lg">Z</span>
               </div>
               <div>

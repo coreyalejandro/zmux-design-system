@@ -91,7 +91,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${inter.variable} ${crimsonPro.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased bg-background text-foreground min-h-screen">
         {/* Skip link for keyboard navigation - INVARIANT_I2 */}
         <a 
           href="#main-content" 

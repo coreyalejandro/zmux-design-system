@@ -347,6 +347,14 @@
   --color-sanctuary-white: var(--sanctuary-white);
   --color-charcoal: var(--charcoal);
   
+  /* Sanctuary Aliases (for consistent naming) */
+  --color-sanctuary-gold: var(--soul-gold);
+  --color-sanctuary-gold-foreground: #1A1917;
+  --color-sanctuary-teal: var(--clinical-teal);
+  --color-sanctuary-teal-foreground: #FEFDFB;
+  --color-sanctuary-terracotta: var(--terracotta);
+  --color-sanctuary-terracotta-foreground: #1A1917;
+  
   /* Charts */
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
