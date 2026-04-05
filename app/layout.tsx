@@ -1,26 +1,16 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Crimson_Pro, JetBrains_Mono } from 'next/font/google'
+import { Space_Grotesk, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 /**
  * ZMUX Design System - Root Layout
- * 
- * Part of The Living Constitution (TLC) Design System
- * 
- * @invariant INVARIANT_A11Y - Semantic HTML and accessibility features
- * @invariant INVARIANT_I2 - Skip link for keyboard navigation
+ * THE SANCTUARY - Vellum Clinical Aesthetic
  */
 
-const inter = Inter({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-sans',
-  display: 'swap',
-})
-
-const crimsonPro = Crimson_Pro({
-  subsets: ['latin'],
-  variable: '--font-display',
   display: 'swap',
 })
 
@@ -31,53 +21,14 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: {
-    default: 'ZMUX Design System | The Living Constitution',
-    template: '%s | ZMUX Design System',
-  },
-  description: 'Accessibility-first, safety-first design system implementing The Living Constitution (TLC) governance principles. WCAG 2.2 AAA compliant.',
-  keywords: [
-    'design system',
-    'accessibility',
-    'WCAG AAA',
-    'safety',
-    'neurodivergent',
-    'The Living Constitution',
-    'TLC',
-    'ZMUX',
-  ],
-  authors: [{ name: 'The Living Constitution' }],
-  creator: 'The Living Constitution',
-  publisher: 'The Living Constitution',
-  generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
+  title: 'THE SANCTUARY | Vellum Clinical',
+  description: 'A soft landing for the weary soul. Precision metabolic tracking meets the warmth of a Southern parlor.',
 }
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#FEFDFB' },
-    { media: '(prefers-color-scheme: dark)', color: '#1A1917' },
-  ],
+  themeColor: '#e5e0d5',
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 5,
-  userScalable: true,
 }
 
 export default function RootLayout({
@@ -89,20 +40,13 @@ export default function RootLayout({
     <html 
       lang="en" 
       suppressHydrationWarning
-      className={`${inter.variable} ${crimsonPro.variable} ${jetbrainsMono.variable}`}
+      className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="font-sans antialiased bg-background text-foreground min-h-screen">
-        {/* Skip link for keyboard navigation - INVARIANT_I2 */}
-        <a 
-          href="#main-content" 
-          className="skip-link"
-        >
-          Skip to main content
-        </a>
+      <body>
+        {/* Vellum diffusion layer */}
+        <div className="vellum-layer" />
         
-        <main id="main-content">
-          {children}
-        </main>
+        {children}
         
         <Analytics />
       </body>
