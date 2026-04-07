@@ -14,28 +14,6 @@ type Section = "sanctuary" | "tokens" | "components" | "safety";
 
 export default function ZMUXShowcase() {
   const [activeSection, setActiveSection] = React.useState<Section>("sanctuary");
-  const [mounted, setMounted] = React.useState(false);
-  
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
-  
-  // Prevent hydration mismatch
-  if (!mounted) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-10 h-10 mx-auto mb-4">
-            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="40" height="40" rx="20" fill="#141414"/>
-              <circle cx="20" cy="20" r="8" stroke="#b38b4d" strokeWidth="2"/>
-            </svg>
-          </div>
-          <div className="font-mono text-xs text-ink/50">Loading Sanctuary...</div>
-        </div>
-      </div>
-    );
-  }
   
   return (
     <div className="relative z-[1] grid grid-cols-[120px_1fr_380px] gap-8 p-8 min-h-screen max-w-[1800px] mx-auto">
